@@ -16,7 +16,7 @@ public class SelfHealingHelper {
     public SelfHealingHelper(WebDriver driver, String apiKey) {
         this.driver = driver;
         this.client = OpenAIOkHttpClient.builder()
-                .apiKey("YOUR_API_KEY")
+                .apiKey("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")
                 .build();
     }
 

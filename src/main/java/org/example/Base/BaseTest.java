@@ -13,6 +13,8 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-extensions");
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();

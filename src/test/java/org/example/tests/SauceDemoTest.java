@@ -14,11 +14,11 @@ public class SauceDemoTest extends BaseTest {
     public void setUp() {
         initDriver();
         driver.get("https://www.saucedemo.com/");
-        healer = new SelfHealingHelper(driver, "YOUR_API_KEY");
+        healer = new SelfHealingHelper(driver, "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");
     }
 
-    @Test
-    public void loginWithoutAI() {
+    @Test(priority=2)
+    public void loginWithoutAILocatorFail() {
         try {
             WebElement user = driver.findElement(By.id("user-name"));
             user.sendKeys("standard_user");
@@ -42,8 +42,34 @@ public class SauceDemoTest extends BaseTest {
         }
     }
 
-    @Test
-    public void loginwithAI() throws InterruptedException {
+    @Test(priority=1)
+    public void loginWithoutAIHappypath() {
+        try {
+            WebElement user = driver.findElement(By.id("user-name"));
+            user.sendKeys("standard_user");
+            WebElement pwd = driver.findElement(By.id("password"));
+            pwd.sendKeys("secret_sauce");
+            driver.findElement(By.id("login-button")).click();
+            Thread.sleep(2000);
+            // 2) Add "Sauce Labs Bike Light" to cart
+            WebElement bikeLightAdd = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button"));
+            bikeLightAdd.click();
+            Thread.sleep(1000);
+            // 3) Checkout
+            driver.findElement(By.className("shopping_cart_link")).click();
+            driver.findElement(By.id("checkout")).click();
+            driver.findElement(By.id("first-name")).sendKeys("John"); // ❌ wrong locator
+            Thread.sleep(1000);
+            driver.findElement(By.name("lastName")).sendKeys("Doe");
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println("❌ Locator failed without AI: " + e.getMessage());
+            Assert.fail("Test failed due to invalid locator without AI healing");
+        }
+    }
+
+        @Test(priority=3)
+    public void loginwithAILocatorFail() throws InterruptedException {
         // 1. Login
         healer.findElement(By.id("user---name")).sendKeys("standard_user"); // ❌ wrong locator
         healer.findElement(By.id("password")).sendKeys("secret_sauce");
