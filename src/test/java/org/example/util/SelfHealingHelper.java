@@ -1,22 +1,26 @@
 package org.example.util;
-
 import com.openai.client.OpenAIClient;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
 import com.openai.models.chat.completions.ChatCompletion;
 import com.openai.models.chat.completions.ChatCompletionCreateParams;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static org.example.tests.SauceDemoTest.*;
 
 public class SelfHealingHelper {
     private final WebDriver driver;
     private final OpenAIClient client;
     private int healedcount = 0;
+    Dotenv dotenv = Dotenv.load();
+    String apikey = dotenv.get("MY_KEY");
 
     public SelfHealingHelper(WebDriver driver, String apiKey) {
         this.driver = driver;
         this.client = OpenAIOkHttpClient.builder()
-                .apiKey("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")
+                .apiKey(apikey)
                 .build();
     }
 
@@ -26,7 +30,8 @@ public class SelfHealingHelper {
         } catch (Exception e) {
             System.out.println("❌ Locator failed: " + by);
             String pageSource = driver.getPageSource();
-
+            failedLocators.add(by.toString());
+            PageSource.add(driver.getCurrentUrl());
             ChatCompletionCreateParams params = ChatCompletionCreateParams.builder()
                     .model("gpt-4o-mini")
                     .addUserMessage("Given this HTML page:\n" + pageSource +
@@ -41,8 +46,8 @@ public class SelfHealingHelper {
             System.out.println("✅ AI suggested locator: " + rawSuggestion);
 
             By healedBy = extractLocator(rawSuggestion);
-            healedcount++;
-
+            HealCounter.HealCount();
+            healedLocators.add(healedBy.toString());
             return driver.findElement((healedBy)); // (simplified)
         }
     }
@@ -132,9 +137,6 @@ public class SelfHealingHelper {
 
     }
 
-    public int getHealedLocatorCount() {
-        return healedcount;
-    }
 
 
 }
