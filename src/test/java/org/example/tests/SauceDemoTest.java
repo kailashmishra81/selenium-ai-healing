@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +15,18 @@ public class SauceDemoTest extends BaseTest {
     public static List<String> healedLocators = new ArrayList<>();
     public static List<String> PageSource = new ArrayList<>();
     @BeforeMethod
-    public void setUp() {
+    public void browserLaunch() {
         Dotenv dotenv = Dotenv.load();
-        String apikey = dotenv.get("OPENAI_API_KEY");
+        String apikey = dotenv.get("MY_KEY");
         initDriver();
         driver.get("https://www.saucedemo.com/");
         healer = new SelfHealingHelper(driver, apikey);
     }
 
-  //  @Test(priority=2)
-    public void loginWithoutAILocatorFail() {
+    // Here the locator is getting failed and test will fail as there is no healing
+    // implemented in this test.
+    @Test(priority=2)
+    public void Test_WithoutSelfHealing() {
         try {
             WebElement user = driver.findElement(By.id("user-name"));
             user.sendKeys("standard_user");
@@ -46,8 +47,9 @@ public class SauceDemoTest extends BaseTest {
         }
     }
 
-//    @Test(priority=1)
-    public void Happypath_NoLocatorsFailed() {
+    // Here the locator is correct and test will pass
+    @Test(priority=1)
+    public void Test_HappyPath() {
         try {
             WebElement user = driver.findElement(By.id("user-name"));
             user.sendKeys("standard_user");
@@ -70,8 +72,9 @@ public class SauceDemoTest extends BaseTest {
         }
     }
 
+    // Here the locator is getting failed and healed using AI and test will pass
         @Test(priority=3)
-        public void LocatorSelfHealing() throws InterruptedException {
+        public void Test_LocatorSelfHealing() throws InterruptedException {
         healer.findElement(By.id("user---name")).sendKeys("standard_user");  // ❌ Inserting wrong locator for username field to simulate failure and healing
         healer.findElement(By.id("password")).sendKeys("secret_sauce");
         healer.findElement(By.id("login-button")).click();

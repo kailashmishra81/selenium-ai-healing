@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Selenium TestNG Results</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Sept 3, 2025 03:00:49 am</span></a>
+<a href="#"><span class="badge badge-primary">Sept 7, 2025 10:18:16 pm</span></a>
 </li>
 </ul>
 </div>
@@ -67,6 +67,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -79,9 +80,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">LocatorSelfHealing</p>
+            <p class="name">Test_HappyPath</p>
             <p class="text-sm">
-              <span>3:00:55 am</span> / <span>00:01:39:819</span>
+              <span>10:18:23 pm</span> / <span>00:00:06:748</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -89,10 +90,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">LocatorSelfHealing</h5>
-<span class='badge badge-success'>09.03.2025 3:00:55 am</span>
-<span class='badge badge-danger'>09.03.2025 3:02:34 am</span>
-<span class='badge badge-default'>00:01:39:819</span>
+<h5 class="test-status text-pass">Test_HappyPath</h5>
+<span class='badge badge-success'>09.07.2025 10:18:23 pm</span>
+<span class='badge badge-danger'>09.07.2025 10:18:30 pm</span>
+<span class='badge badge-default'>00:00:06:748</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -104,7 +105,7 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:02:34 am</td>
+        <td>10:18:30 pm</td>
         <td>
           Test Passed ✅
         </td>
@@ -114,25 +115,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="2"
+        <li class="test-item"  status="fail" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">📊 Execution Summary</p>
+            <p class="name">Test_WithoutSelfHealing</p>
             <p class="text-sm">
-              <span>3:02:35 am</span> / <span>00:00:00:017</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>10:18:33 pm</span> / <span>00:00:13:994</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">📊 Execution Summary</h5>
-<span class='badge badge-success'>09.03.2025 3:02:35 am</span>
-<span class='badge badge-danger'>09.03.2025 3:02:35 am</span>
-<span class='badge badge-default'>00:00:00:017</span>
+<h5 class="test-status text-fail">Test_WithoutSelfHealing</h5>
+<span class='badge badge-success'>09.07.2025 10:18:33 pm</span>
+<span class='badge badge-danger'>09.07.2025 10:18:47 pm</span>
+<span class='badge badge-default'>00:00:13:994</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -143,204 +144,284 @@
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>10:18:47 pm</td>
         <td>
-          ✅ Passed Tests: 1
+          Test Failed ❌: java.lang.AssertionError: Test failed due to invalid locator without AI healing
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Test_LocatorSelfHealing</p>
+            <p class="text-sm">
+              <span>10:18:50 pm</span> / <span>00:01:18:196</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Test_LocatorSelfHealing</h5>
+<span class='badge badge-success'>09.07.2025 10:18:50 pm</span>
+<span class='badge badge-danger'>09.07.2025 10:20:08 pm</span>
+<span class='badge badge-default'>00:01:18:196</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>10:20:08 pm</td>
+        <td>
+          Test Passed ✅
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">📊 Execution Summary</p>
+            <p class="text-sm">
+              <span>10:20:08 pm</span> / <span>00:00:00:005</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">📊 Execution Summary</h5>
+<span class='badge badge-success'>09.07.2025 10:20:08 pm</span>
+<span class='badge badge-danger'>09.07.2025 10:20:08 pm</span>
+<span class='badge badge-default'>00:00:00:005</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>10:20:08 pm</td>
+        <td>
+          ✅ Passed Tests: 2
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-          ❌ Failed Tests: 0
+          ❌ Failed Tests: 1
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           ⚠️ Skipped Tests: 0
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           🛠 Healed Locators: 6
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.id: user---name
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.id: user-name
+          AI Healed Locator: By.id: user-name
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/
+          Page URL: https://www.saucedemo.com/
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.xpath: //div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button22
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.xpath: //div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button
+          AI Healed Locator: By.xpath: //div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button[@data-test='add-to-cart-sauce-labs-bike-light']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/inventory.html
+          Page URL: https://www.saucedemo.com/inventory.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.xpath: //div[first123-name]
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.xpath: //input[@id='first-name']
+          AI Healed Locator: By.xpath: //input[@id='first-name']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/checkout-step-one.html
+          Page URL: https://www.saucedemo.com/checkout-step-one.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.name: last
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.name: lastName
+          AI Healed Locator: By.name: lastName
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/checkout-step-one.html
+          Page URL: https://www.saucedemo.com/checkout-step-one.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.id: postal456-code
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.id: postal-code
+          AI Healed Locator: By.id: postal-code
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/checkout-step-one.html
+          Page URL: https://www.saucedemo.com/checkout-step-one.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           Failed Locator: By.id: continue44
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           AI Healed Locator: By.cssSelector: input.submit-button.btn.btn_primary.cart_button.btn_action[data-test='continue']
+          AI Healed Locator: By.cssSelector: input[data-test='continue']
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
-           Page URL: https://www.saucedemo.com/checkout-step-one.html
+          Page URL: https://www.saucedemo.com/checkout-step-one.html
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>3:02:35 am</td>
+        <td>10:20:08 pm</td>
         <td>
           --------------------------------------------------
         </td>
@@ -364,25 +445,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Sept 3, 2025 03:00:49 am</h3>
+<h3>Sept 7, 2025 10:18:16 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Sept 3, 2025 03:02:35 am</h3>
+<h3>Sept 7, 2025 10:20:08 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>2</h3>
+<h3>3</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -398,12 +479,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>2</b> tests passed
+<div><small data-tooltip='75%'>
+<b>3</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='25%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -421,9 +502,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='3%'><b>1</b> events passed</small></div>
+<div><small data-tooltip='6%'><b>2</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
+<small data-tooltip='3%'><b>1</b> events failed,
 <b data-tooltip='%'>29</b> others
 </small>
 </div>
@@ -440,7 +521,7 @@
 </div></div>
 <script>
 var timeline = {
-"LocatorSelfHealing":99.819,"📊 Execution Summary":0.017
+"Test_HappyPath":6.748,"Test_WithoutSelfHealing":13.994,"Test_LocatorSelfHealing":78.196,"📊 Execution Summary":0.005
 };
 </script>
 <div class="row">
@@ -467,8 +548,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
-failParent: 0,
+passParent: 3,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -484,8 +565,8 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 1,
-failEvents: 0,
+passEvents: 2,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 29

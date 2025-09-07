@@ -12,17 +12,17 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.example.util.HealCounter;
+
 import static org.example.tests.SauceDemoTest.*;
 
 public class ExtentReportListener implements ITestListener {
     private static ExtentReports extent;
-    private static ExtentTest test;
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter spark = new ExtentSparkReporter("reports/extent-report.html");
+        String timestamp = new java.text.SimpleDateFormat("yyyyMMdd_HHmmss").format(new java.util.Date());
+        ExtentSparkReporter spark = new ExtentSparkReporter("reports/extent-report-" + timestamp + ".html");
         spark.config().setDocumentTitle("Automation Test Report");
         spark.config().setReportName("Selenium TestNG Results");
 
@@ -34,7 +34,7 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        test = extent.createTest(result.getMethod().getMethodName());
+        ExtentTest test = extent.createTest(result.getMethod().getMethodName());
         extentTest.set(test);
     }
 
@@ -79,14 +79,16 @@ public class ExtentReportListener implements ITestListener {
         summary.info("⚠️ Skipped Tests: " + skipped);
         summary.info("🛠 Healed Locators: " + healed);
         summary.info("--------------------------------------------------");
-        for(int i=0; i<healed; i++) {
-            summary.info("Failed Locator: " + failedLocators.get(i));
-            summary.info(" AI Healed Locator: " + healedLocators.get(i));
-            summary.info(" Page URL: " + PageSource.get(i));
-            summary.info("--------------------------------------------------");
 
+        int minSize = Math.min(Math.min(failedLocators.size(), healedLocators.size()), PageSource.size());
+        for (int i = 0; i < minSize; i++) {
+            summary.info("Failed Locator: " + failedLocators.get(i));
+            summary.info("AI Healed Locator: " + healedLocators.get(i));
+            summary.info("Page URL: " + PageSource.get(i));
+            summary.info("--------------------------------------------------");
         }
-        extent.flush();
+
+        extent.flush(); // 🔑 Flush only once here
     }
 
     private String takeScreenshot(WebDriver driver, String testName) throws IOException {

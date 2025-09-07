@@ -40,7 +40,6 @@ public class SelfHealingHelper {
                     .maxTokens(100)
                     .temperature(0.2)
                     .build();
-
             ChatCompletion completion = client.chat().completions().create(params);
             String rawSuggestion = completion.choices().get(0).message()._content().toString();
             System.out.println("✅ AI suggested locator: " + rawSuggestion);
